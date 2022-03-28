@@ -10,9 +10,7 @@ class Trie:
     def insert(self, word):
         current_trie = self
         for char in word:
-            if char not in current_trie.nodes:
-                current_trie.nodes[char] = Trie()
-            
+            current_trie.nodes.setdefault(char, Trie())
             current_trie = current_trie.nodes[char]
 
         current_trie.is_leaf = True
