@@ -25,7 +25,6 @@ class HashTable:
 
     def insert(self, value):
         index = self.hash(value)
-        print("insert index", index, value)
         root = self.table[index]
         root.insert(value)
 
@@ -70,5 +69,4 @@ hash_table.insert('imam')
 hash_table.insert('suleyman')
 hash_table.insert('ümit')
 index = hash_table.hash('muzaffer')
-print("index muzaffer", index)
 hash_table.print_all_table()
