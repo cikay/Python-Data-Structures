@@ -25,6 +25,7 @@ class HashTable:
 
     def insert(self, value):
         index = self.hash(value)
+        print("insert index", index, value)
         root = self.table[index]
         root.insert(value)
 
@@ -46,8 +47,28 @@ class HashTable:
             current_node = current_node.next
 
 
+    def print_all_table(self):
+        for i, linked_list in enumerate(self.table):
+            current_node = linked_list.root
+            if not current_node:
+                continue
+
+            print(f'Index: {i}')
+            while True:
+                if not current_node:
+                    break
+
+                print(current_node.value)
+                current_node = current_node.next
+
+
+
 hash_table = HashTable(1000)
 hash_table.insert('muzaffer')
 hash_table.insert('zaffermu')
+hash_table.insert('imam')
+hash_table.insert('suleyman')
+hash_table.insert('ümit')
 index = hash_table.hash('muzaffer')
-hash_table.print_list(index)
+print("index muzaffer", index)
+hash_table.print_all_table()
