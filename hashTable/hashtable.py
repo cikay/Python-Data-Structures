@@ -20,7 +20,7 @@ class Node:
 class HashTable:
 
     def __init__(self, size) -> None:
-        self.table = [LinkedListNode() for _ in range(size)]
+        self.table = tuple(LinkedListNode() for _ in range(size))
 
 
     def insert(self, value):
