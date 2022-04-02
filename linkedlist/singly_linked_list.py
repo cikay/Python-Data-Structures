@@ -15,7 +15,7 @@ class LinkedList:
         current = self.head
         counter = 1
         while True:
-            if current is not None:
+            if current is None:
                 break
 
             print(f"{counter}. node data: {current.data}")
