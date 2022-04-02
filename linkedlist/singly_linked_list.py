@@ -33,7 +33,7 @@ class LinkedList:
         print("added new node to the linked list")
 
 
-    def add_node_inorder(self, data):
+    def add_inorder(self, data):
 
         current = self.head
 
@@ -77,11 +77,11 @@ root = Node(2)
 linked_list = LinkedList(root)
 linked_list.add_node_to_end(789)
 linked_list.get_linked_list()
-linked_list.add_node_inorder(100)
-linked_list.add_node_inorder(10)
-linked_list.add_node_inorder(5)
-linked_list.add_node_inorder(50)
-linked_list.add_node_inorder(700)
+linked_list.add_inorder(100)
+linked_list.add_inorder(10)
+linked_list.add_inorder(5)
+linked_list.add_inorder(50)
+linked_list.add_inorder(700)
 linked_list.delete(5)
 linked_list.delete(5)
 linked_list.delete(700)
