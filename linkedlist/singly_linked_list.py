@@ -6,6 +6,10 @@ class Node:
         self.data = data
         self.next_node = None
 
+class LinkedList:
+    def __init__(self, head):
+        self.head = head
+
 
 def get_linked_list(root: Node):
     iter = root
