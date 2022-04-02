@@ -4,7 +4,7 @@ class Node:
 
     def __init__(self, data):
         self.data = data
-        self.next_node = None
+        self.next = None
 
 class LinkedList:
     def __init__(self, head):
@@ -19,7 +19,7 @@ class LinkedList:
                 break
 
             items.append(str(current.data))
-            current = current.next_node
+            current = current.next
 
         print('->'.join(items))
 
@@ -27,10 +27,10 @@ class LinkedList:
     def add_to_end(self, data):
         current = self.head
 
-        while current.next_node != None:
-            current = current.next_node
+        while current.next != None:
+            current = current.next
 
-        current.next_node = Node(data)
+        current.next = Node(data)
         print("added new node to the linked list")
 
 
@@ -44,33 +44,33 @@ class LinkedList:
         elif data < self.head.data: #root change
 
             new_root = Node(data)
-            new_root.next_node = root
+            new_root.next = root
             return new_root
 
-        while current.next_node != None and current.next_node.data < data:
-            current = current.next_node
+        while current.next != None and current.next.data < data:
+            current = current.next
 
         node = Node(data)
-        node.next_node = current.next_node
-        current.next_node = node
+        node.next = current.next
+        current.next = node
 
 
     def delete(self, data) -> Node:
         if self.head.data == data: #delete root
-            self.head = self.head.next_node
+            self.head = self.head.next
             return
 
         current = self.head
         while True:
-            if not current.next_node:
+            if not current.next:
                 print(f'Node for {data} not found to be deleted')
                 break
 
-            if current.next_node is not None and current.next_node.data == data:
-                current.next_node = current.next_node.next_node
+            if current.next is not None and current.next.data == data:
+                current.next = current.next.next
                 break
 
-            current = current.next_node
+            current = current.next
 
 
 
