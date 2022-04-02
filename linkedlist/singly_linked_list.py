@@ -33,26 +33,26 @@ class LinkedList:
         print("added new node to the linked list")
 
 
-def add_node_inorder(root:Node, data):
+    def add_node_inorder(self, data):
 
-    iter = root
+        iter = self.head
 
-    if root == None: #
-        return Node(data)
-    
-    elif data < root.data: #root change
+        if self.head == None: #
+            return Node(data)
+        
+        elif data < self.head.data: #root change
 
-        new_root = Node(data)
-        new_root.next_node = root
-        return new_root
+            new_root = Node(data)
+            new_root.next_node = root
+            return new_root
 
-    while iter.next_node != None and iter.next_node.data < data:
-        iter = iter.next_node
+        while iter.next_node != None and iter.next_node.data < data:
+            iter = iter.next_node
 
-    node = Node(data)
-    node.next_node = iter.next_node
-    iter.next_node = node
-    return root
+        node = Node(data)
+        node.next_node = iter.next_node
+        iter.next_node = node
+        return root
 
 def delete_node(root: Node, data) -> Node:
 
@@ -78,12 +78,7 @@ def delete_node(root: Node, data) -> Node:
     return root
 
 
-root = None
-root = add_node_inorder(root, 100)
-root = add_node_inorder(root, 10)
-root = add_node_inorder(root, 5)
-root = add_node_inorder(root, 50)
-root = add_node_inorder(root, 700)
+root = Node(2)
 root = delete_node(root=root, data=5)
 root = delete_node(root=root, data=5)
 root = delete_node(root=root, data=700)
@@ -91,6 +86,11 @@ root = delete_node(root=root, data=50)
 linked_list = LinkedList(root)
 linked_list.add_node_to_end(789)
 linked_list.get_linked_list()
+linked_list.add_node_inorder(100)
+linked_list.add_node_inorder(10)
+linked_list.add_node_inorder(5)
+linked_list.add_node_inorder(50)
+linked_list.add_node_inorder(700)
 
 
 
