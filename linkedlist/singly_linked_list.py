@@ -60,17 +60,17 @@ class LinkedList:
             self.head = self.head.next_node
             return
 
-        iter = self.head
-        while iter.next_node != None and iter.next_node.data != data:
-            iter = iter.next_node
+        current = self.head
+        while current.next_node != None and current.next_node.data != data:
+            current = current.next_node
 
-        if(iter.next_node == None):
+        if(current.next_node == None):
             print(f'silmek istediginiz {data} elemani listede yok')
             return root
 
 
-        be_deleted = iter.next_node
-        iter.next_node = iter.next_node.next_node
+        be_deleted = current.next_node
+        current.next_node = current.next_node.next_node
         del be_deleted
         return root
 
