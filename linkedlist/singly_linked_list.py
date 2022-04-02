@@ -14,7 +14,10 @@ class LinkedList:
     def get_linked_list(self):
         current = self.head
         counter = 1
-        while current != None:
+        while True:
+            if current is not None:
+                break
+
             print(f"{counter}. node data: {current.data}")
             current = current.next_node
             counter += 1
