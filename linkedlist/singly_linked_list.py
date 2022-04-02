@@ -35,7 +35,7 @@ class LinkedList:
 
     def add_node_inorder(self, data):
 
-        iter = self.head
+        current = self.head
 
         if self.head is None:
             return Node(data)
@@ -46,12 +46,12 @@ class LinkedList:
             new_root.next_node = root
             return new_root
 
-        while iter.next_node != None and iter.next_node.data < data:
-            iter = iter.next_node
+        while current.next_node != None and current.next_node.data < data:
+            current = current.next_node
 
         node = Node(data)
-        node.next_node = iter.next_node
-        iter.next_node = node
+        node.next_node = current.next_node
+        current.next_node = node
         return root
 
 def delete_node(root: Node, data) -> Node:
