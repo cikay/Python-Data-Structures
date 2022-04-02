@@ -12,11 +12,11 @@ class LinkedList:
 
 
     def get_linked_list(self):
-        iter = self.head
+        current = self.head
         counter = 1
-        while iter != None:
-            print(f"{counter}. node data: {iter.data}")
-            iter = iter.next_node
+        while current != None:
+            print(f"{counter}. node data: {current.data}")
+            current = current.next_node
             counter += 1
 
 
