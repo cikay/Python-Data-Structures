@@ -64,7 +64,7 @@ class LinkedList:
         while current.next_node != None and current.next_node.data != data:
             current = current.next_node
 
-        if(current.next_node == None):
+        if current.next_node == None:
             print(f'silmek istediginiz {data} elemani listede yok')
             return root
 
