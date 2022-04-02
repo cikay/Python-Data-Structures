@@ -23,7 +23,7 @@ class LinkedList:
             counter += 1
 
 
-    def add_node_to_end(self, data):
+    def add_to_end(self, data):
         current = self.head
 
         while current.next_node != None:
@@ -75,7 +75,7 @@ class LinkedList:
 
 root = Node(2)
 linked_list = LinkedList(root)
-linked_list.add_node_to_end(789)
+linked_list.add_to_end(789)
 linked_list.get_linked_list()
 linked_list.add_inorder(100)
 linked_list.add_inorder(10)
