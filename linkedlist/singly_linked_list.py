@@ -37,10 +37,6 @@ class LinkedList:
     def add_inorder(self, data):
 
         current = self.head
-
-        if self.head is None:
-            return Node(data)
-        
         if data < self.head.data: #root change
 
             new_root = Node(data)
