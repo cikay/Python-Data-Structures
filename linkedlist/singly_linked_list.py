@@ -41,7 +41,7 @@ class LinkedList:
         if self.head is None:
             return Node(data)
         
-        elif data < self.head.data: #root change
+        if data < self.head.data: #root change
 
             new_root = Node(data)
             new_root.next = root
