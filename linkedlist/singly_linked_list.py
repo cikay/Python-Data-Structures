@@ -23,14 +23,14 @@ class LinkedList:
             counter += 1
 
 
-def add_node_to_end(root, data):
-    iter = root
+    def add_node_to_end(self, data):
+        current = self.head
 
-    while iter.next_node != None:
-        iter = iter.next_node
- 
-    iter.next_node = Node(data)
-    print(f"added new node to the linked list")
+        while current.next_node != None:
+            current = current.next_node
+
+        current.next_node = Node(data)
+        print("added new node to the linked list")
 
 
 def add_node_inorder(root:Node, data):
@@ -88,8 +88,8 @@ root = delete_node(root=root, data=5)
 root = delete_node(root=root, data=5)
 root = delete_node(root=root, data=700)
 root = delete_node(root=root, data=50)
-add_node_to_end(root, 789)
 linked_list = LinkedList(root)
+linked_list.add_node_to_end(789)
 linked_list.get_linked_list()
 
 
