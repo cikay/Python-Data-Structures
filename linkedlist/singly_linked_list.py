@@ -52,7 +52,7 @@ class LinkedList:
         node = Node(data)
         node.next_node = current.next_node
         current.next_node = node
-        return root
+
 
 def delete_node(root: Node, data) -> Node:
 
