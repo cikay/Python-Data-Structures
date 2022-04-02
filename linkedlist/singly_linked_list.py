@@ -11,16 +11,17 @@ class LinkedList:
         self.head = head
 
 
-    def get_linked_list(self):
+    def print_list(self):
         current = self.head
-        counter = 1
+        items = []
         while True:
             if current is None:
                 break
 
-            print(f"{counter}. node data: {current.data}")
+            items.append(str(current.data))
             current = current.next_node
-            counter += 1
+
+        print('->'.join(items))
 
 
     def add_to_end(self, data):
@@ -76,7 +77,6 @@ class LinkedList:
 root = Node(2)
 linked_list = LinkedList(root)
 linked_list.add_to_end(789)
-linked_list.get_linked_list()
 linked_list.add_inorder(100)
 linked_list.add_inorder(10)
 linked_list.add_inorder(5)
@@ -87,3 +87,5 @@ linked_list.delete(5)
 linked_list.delete(700)
 linked_list.delete(50)
 linked_list.delete(502)
+linked_list.print_list()
+
