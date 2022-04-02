@@ -54,33 +54,27 @@ class LinkedList:
         current.next_node = node
 
 
-    def delete_node(self, data) -> Node:
-
+    def delete(self, data) -> Node:
         if self.head.data == data: #delete root
             self.head = self.head.next_node
             return
 
         current = self.head
-        while current.next_node != None and current.next_node.data != data:
+        while True:
+            if not current.next_node:
+                print(f'Node for {data} not found to be deleted')
+                break
+
+            if current.next_node is not None and current.next_node.data == data:
+                current.next_node = current.next_node.next_node
+                break
+
             current = current.next_node
 
-        if current.next_node is None:
-            print(f'silmek istediginiz {data} elemani listede yok')
-            return root
-
-
-        be_deleted = current.next_node
-        current.next_node = current.next_node.next_node
-        del be_deleted
-        return root
 
 
 root = Node(2)
 linked_list = LinkedList(root)
-linked_list.delete_node(data=5)
-linked_list.delete_node(data=5)
-linked_list.delete_node(data=700)
-linked_list.delete_node(data=50)
 linked_list.add_node_to_end(789)
 linked_list.get_linked_list()
 linked_list.add_node_inorder(100)
@@ -88,9 +82,8 @@ linked_list.add_node_inorder(10)
 linked_list.add_node_inorder(5)
 linked_list.add_node_inorder(50)
 linked_list.add_node_inorder(700)
-
-
-
- 
-
-    
+linked_list.delete(5)
+linked_list.delete(5)
+linked_list.delete(700)
+linked_list.delete(50)
+linked_list.delete(502)
