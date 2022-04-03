@@ -31,11 +31,12 @@ class LinkedList:
     def add_to_end(self, data):
         current = self.head
 
-        while current.next != None:
-            current = current.next
+        while True:
+            if not current.next:
+                current.next = Node(data)
+                break
 
-        current.next = Node(data)
-        print("added new node to the linked list")
+            current = current.next
 
 
     def add_inorder(self, data):
@@ -76,12 +77,12 @@ class LinkedList:
 
 root = Node(2)
 linked_list = LinkedList(root)
-linked_list.add_to_end(789)
 linked_list.add_inorder(100)
 linked_list.add_inorder(10)
 linked_list.add_inorder(5)
 linked_list.add_inorder(50)
 linked_list.add_inorder(700)
+linked_list.add_to_end(-2)
 linked_list.delete(5)
 linked_list.delete(5)
 linked_list.delete(700)
