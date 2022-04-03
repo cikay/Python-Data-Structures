@@ -4,88 +4,88 @@ class Node:
 
     def __init__(self, data):
         self.data = data
-        self.next_node = None
+        self.next = None
+
+class LinkedList:
+    def __init__(self, head):
+        self.head = head
 
 
-def get_linked_list(root: Node):
-    iter = root
-    counter = 1
-    while iter != None:
-        print(f"{counter}. node data: {iter.data}")
-        iter = iter.next_node
-        counter += 1
+    def print_list(self):
+        current = self.head
+        items = []
+        while True:
+            if current is None:
+                break
+
+            items.append(str(current.data))
+            current = current.next
+
+        print('->'.join(items))
 
 
-def add_node_to_end(root, data):
-    iter = root
+    def add_to_end(self, data):
+        current = self.head
 
-    while iter.next_node != None:
-        iter = iter.next_node
- 
-    iter.next_node = Node(data)
-    print(f"added new node to the linked list")
+        while current.next != None:
+            current = current.next
 
-
-def add_node_inorder(root:Node, data):
-
-    iter = root
-
-    if root == None: #
-        return Node(data)
-    
-    elif data < root.data: #root change
-
-        new_root = Node(data)
-        new_root.next_node = root
-        return new_root
-
-    while iter.next_node != None and iter.next_node.data < data:
-        iter = iter.next_node
-
-    node = Node(data)
-    node.next_node = iter.next_node
-    iter.next_node = node
-    return root
-
-def delete_node(root: Node, data) -> Node:
-
-    if(root.data == data): #delete root
-
-        new_root = root.next_node
-        del root
-        print('root is deleted')
-        return new_root
-
-    iter = root
-    while iter.next_node != None and iter.next_node.data != data:
-        iter = iter.next_node
-
-    if(iter.next_node == None):
-        print(f'silmek istediginiz {data} elemani listede yok')
-        return root
-
-    
-    be_deleted = iter.next_node
-    iter.next_node = iter.next_node.next_node
-    del be_deleted
-    return root
+        current.next = Node(data)
+        print("added new node to the linked list")
 
 
-root = None
-root = add_node_inorder(root, 100)
-root = add_node_inorder(root, 10)
-root = add_node_inorder(root, 5)
-root = add_node_inorder(root, 50)
-root = add_node_inorder(root, 700)
-root = delete_node(root=root, data=5)
-root = delete_node(root=root, data=5)
-root = delete_node(root=root, data=700)
-root = delete_node(root=root, data=50)
-add_node_to_end(root, 789)
-get_linked_list(root=root)
+    def add_inorder(self, data):
+
+        current = self.head
+
+        if self.head is None:
+            return Node(data)
+        
+        elif data < self.head.data: #root change
+
+            new_root = Node(data)
+            new_root.next = root
+            return new_root
+
+        while current.next != None and current.next.data < data:
+            current = current.next
+
+        node = Node(data)
+        node.next = current.next
+        current.next = node
+
+
+    def delete(self, data) -> Node:
+        if self.head.data == data: #delete root
+            self.head = self.head.next
+            return
+
+        current = self.head
+        while True:
+            if not current.next:
+                print(f'Node for {data} not found to be deleted')
+                break
+
+            if current.next is not None and current.next.data == data:
+                current.next = current.next.next
+                break
+
+            current = current.next
 
 
 
- 
+root = Node(2)
+linked_list = LinkedList(root)
+linked_list.add_to_end(789)
+linked_list.add_inorder(100)
+linked_list.add_inorder(10)
+linked_list.add_inorder(5)
+linked_list.add_inorder(50)
+linked_list.add_inorder(700)
+linked_list.delete(5)
+linked_list.delete(5)
+linked_list.delete(700)
+linked_list.delete(50)
+linked_list.delete(502)
+linked_list.print_list()
 
-    
