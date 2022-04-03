@@ -24,6 +24,10 @@ class LinkedList:
         print('->'.join(items))
 
 
+    def add_node_to_head(self, node):
+        self.head, node.next = node, self.head
+
+
     def add_to_end(self, data):
         current = self.head
 
@@ -83,5 +87,7 @@ linked_list.delete(5)
 linked_list.delete(700)
 linked_list.delete(50)
 linked_list.delete(502)
+new_head = Node(-1)
+linked_list.add_node_to_head(new_head)
 linked_list.print_list()
 
