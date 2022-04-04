@@ -80,6 +80,15 @@ class LinkedList:
 
             current = current.next
 
+    def delete_by_node(self, node):
+        if node == self.head:
+            self.head = node.next
+
+        if node.next:
+            node.data, node.next = node.next.data, node.next.next
+        else:
+            self.delete(node.data)
+
 
 
 root = Node(2)
@@ -98,5 +107,9 @@ linked_list.delete(50)
 linked_list.delete(502)
 node = Node(274)
 linked_list.add_node_inorder(node)
+linked_list.delete_by_node(node)
+node = Node(1200)
+linked_list.add_node_inorder(node)
+linked_list.delete_by_node(node)
 linked_list.print_list()
 
