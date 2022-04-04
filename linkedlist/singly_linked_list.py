@@ -24,8 +24,15 @@ class LinkedList:
         print('->'.join(items))
 
 
-    def add_node_to_head(self, node):
-        self.head, node.next = node, self.head
+    def add_node_inorder(self, node):
+        current = self.head
+        while True:
+            if not current.next or current.next.data > node.data:
+                current.next, node.next = node, current.next
+                break
+
+            current = current.next
+
 
 
     def add_to_end(self, data):
@@ -81,6 +88,7 @@ linked_list.add_inorder(100)
 linked_list.add_inorder(10)
 linked_list.add_inorder(5)
 linked_list.add_inorder(50)
+linked_list.add_inorder(880)
 linked_list.add_inorder(700)
 linked_list.add_to_end(-2)
 linked_list.delete(5)
@@ -88,7 +96,7 @@ linked_list.delete(5)
 linked_list.delete(700)
 linked_list.delete(50)
 linked_list.delete(502)
-new_head = Node(-1)
-linked_list.add_node_to_head(new_head)
+node = Node(274)
+linked_list.add_node_inorder(node)
 linked_list.print_list()
 
