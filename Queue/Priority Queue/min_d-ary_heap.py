@@ -40,8 +40,7 @@ class MinHeap:
         return root
     
     def peek(self):
-        if self.isempty(): return None
-        return self.__heap[0]
+        return None if self.isempty() else self.__heap[0]
     
     def removeat(self, i):
         if self.isempty(): return None
