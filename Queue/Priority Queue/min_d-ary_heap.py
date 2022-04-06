@@ -1,3 +1,5 @@
+from io import StringIO
+import math
 import sys
 
 
@@ -108,6 +110,28 @@ class MinHeap:
                 index = mincindex = cindex
         return index
 
+    def print_heap(self, total_width=60, fill=' '):
+        last_row = -1
+        output = StringIO()
+
+        for i, n in enumerate(self.__heap):
+            row = int(math.floor(math.log(i+1, 2))) if i else 0
+
+            if row != last_row:
+                output.write('\n')
+            
+            
+            column = 2**row
+            col_width = int(math.floor((total_width*1) / column))
+            if n is None:
+                continue
+            output.write(str(n).center(col_width, fill))
+            last_row = row
+        
+        print(output.getvalue())
+        print('-'*total_width)
+
+
     def __min(self, x, y):
         if x <= y:
             return x
@@ -148,6 +172,7 @@ print(f"peek {minheap.peek()}")
 minheap.add(0)
 minheap.removeat(7)
 minheap.print()
+minheap.print_heap()
 
 
 
