@@ -76,11 +76,7 @@ class MinHeap:
     
     
     def __is_less(self, i, j):
-
-        if self.__heap[i] < self.__heap[j]:
-            return True
-        
-        return False
+        return self.__heap[i] < self.__heap[j]
     
     def __swim(self, cindex):
 
@@ -132,14 +128,10 @@ class MinHeap:
 
 
     def __min(self, x, y):
-        if x <= y:
-            return x
-        return y
+        return x if x <= y else y
     
     def __max(self, x, y):
-        if x <= y:
-            return y
-        return x
+        return y if x <= y else x
 
 
 
