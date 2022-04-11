@@ -24,24 +24,32 @@ class LinkedList:
         print('->'.join(items))
 
 
+    def add_node_inorder(self, node):
+        current = self.head
+        while True:
+            if not current.next or current.next.data > node.data:
+                current.next, node.next = node, current.next
+                break
+
+            current = current.next
+
+
+
     def add_to_end(self, data):
         current = self.head
 
-        while current.next != None:
-            current = current.next
+        while True:
+            if not current.next:
+                current.next = Node(data)
+                break
 
-        current.next = Node(data)
-        print("added new node to the linked list")
+            current = current.next
 
 
     def add_inorder(self, data):
 
         current = self.head
-
-        if self.head is None:
-            return Node(data)
-        
-        elif data < self.head.data: #root change
+        if data < self.head.data: #root change
 
             new_root = Node(data)
             new_root.next = root
@@ -72,20 +80,36 @@ class LinkedList:
 
             current = current.next
 
+    def delete_by_node(self, node):
+        if node == self.head:
+            self.head = node.next
+
+        if node.next:
+            node.data, node.next = node.next.data, node.next.next
+        else:
+            self.delete(node.data)
+
 
 
 root = Node(2)
 linked_list = LinkedList(root)
-linked_list.add_to_end(789)
 linked_list.add_inorder(100)
 linked_list.add_inorder(10)
 linked_list.add_inorder(5)
 linked_list.add_inorder(50)
+linked_list.add_inorder(880)
 linked_list.add_inorder(700)
+linked_list.add_to_end(-2)
 linked_list.delete(5)
 linked_list.delete(5)
 linked_list.delete(700)
 linked_list.delete(50)
 linked_list.delete(502)
+node = Node(274)
+linked_list.add_node_inorder(node)
+linked_list.delete_by_node(node)
+node = Node(1200)
+linked_list.add_node_inorder(node)
+linked_list.delete_by_node(node)
 linked_list.print_list()
 
