@@ -1,16 +1,15 @@
-
+from collections import defaultdict
 
 class Trie:
 
     def __init__(self) -> None:
-        self.nodes = {}
+        self.nodes = defaultdict(Trie)
         self.is_leaf = False
     
 
     def insert(self, word):
         current_trie = self
         for char in word:
-            current_trie.nodes.setdefault(char, Trie())
             current_trie = current_trie.nodes[char]
 
         current_trie.is_leaf = True
